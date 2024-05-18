@@ -1,0 +1,108 @@
+import json
+
+def tambah_likes(data, judul_lagu, jumlah_likes):
+    for lagu in data["lagu"]:
+        if lagu["judul"] == judul_lagu:
+            lagu["likes"] += jumlah_likes
+            print(f"Likes untuk lagu {judul_lagu} berhasil ditambahkan. Total likes sekarang: {lagu['likes']}")
+            return True
+    print(f"Lagu dengan judul {judul_lagu} tidak ditemukan.")
+    return False
+
+def main():
+    # Baca file JSON
+    with open("lagu.json", "r") as file:
+        data_lagu = json.load(file)
+
+    # Tampilkan lagu yang ada
+    print("Daftar Lagu:")
+    for lagu in data_lagu["lagu"]:
+        print(f"{lagu['judul']} - {lagu['artist']} (Likes: {lagu['likes']})")
+
+    # Input judul lagu dan jumlah likes yang ingin ditambahkan
+    judul_lagu = input("Masukkan judul lagu yang ingin ditambahkan likes: ")
+    jumlah_likes = int(input("Masukkan jumlah likes yang ingin ditambahkan: "))
+
+    # Panggil fungsi untuk menambahkan likes
+    tambah_likes(data_lagu, judul_lagu, jumlah_likes)
+
+    # Simpan perubahan ke dalam file JSON
+    with open("data_lagu.json", "w") as file:
+        json.dump(data_lagu, file, indent=2)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+import json
+
+def tambah_likes(data, judul_lagu, jumlah_likes):
+    for lagu in data["lagu"]:
+        if lagu["judul"] == judul_lagu:
+            lagu["likes"] += jumlah_likes
+            print(f"Likes untuk lagu {judul_lagu} berhasil ditambahkan. Total likes sekarang: {lagu['likes']}")
+            return True
+    print(f"Lagu dengan judul {judul_lagu} tidak ditemukan.")
+    return False
+
+def main():
+    with open("lagu.json", "r+") as file:
+        data_lagu = json.load(file)
+
+        print("Daftar Lagu:")
+        for lagu in data_lagu["lagu"]:
+            print(f"{lagu['judul']} - {lagu['artist']} (Likes: {lagu['likes']})")
+
+        judul_lagu = input("Masukkan judul lagu yang ingin ditambahkan likes: ")
+        jumlah_likes = int(input("Masukkan jumlah likes yang ingin ditambahkan: "))
+
+        if tambah_likes(data_lagu, judul_lagu, jumlah_likes):
+            file.seek(0)  # Kembali ke awal file
+            json.dump(data_lagu, file, indent=2)
+            file.truncate()  # Hapus data yang mungkin lebih panjang
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+import json
+
+def tambah_likes(data, judul_lagu, jumlah_likes):
+    for lagu in data["lagu"]:
+        if lagu["judul"] == judul_lagu:
+            lagu["likes"] += 1
+            print(f"Likes untuk lagu {judul_lagu} berhasil ditambahkan. Total likes sekarang: {lagu['likes']}")
+            return True
+    print(f"Lagu dengan judul {judul_lagu} tidak ditemukan.")
+    return False
+
+def main():
+    with open("lagu.json", "r+") as file:
+        data_lagu = json.load(file)
+
+        print("Daftar Lagu:")
+        for lagu in data_lagu["lagu"]:
+            print(f"{lagu['judul']} - {lagu['artist']} (Likes: {lagu['likes']})")
+
+        judul_lagu = input("Masukkan judul lagu yang ingin ditambahkan likes: ")
+        jumlah_likes = 1
+
+        if tambah_likes(data_lagu, judul_lagu, jumlah_likes):
+            file.seek(0)  
+            json.dump(data_lagu, file, indent=2)
+            file.truncate()
+            
+if __name__ == "__main__":
+    main()
+

@@ -1,0 +1,34 @@
+{
+  "lagu": [
+    {
+      "judul": "Cundamani",
+      "artist": "Denny Caknan",
+      "played": 123,
+      "likes": 35
+    },
+    {
+      "judul": "Taman Jurug",
+      "artist": "Denny Caknan",
+      "played": 107,
+      "likes": 65
+    },
+    {
+      "judul": "Nemen",
+      "artist": "Niken Salindry",
+      "played": 278,
+      "likes": 144
+    },
+    {
+      "judul": "Alolo Sayang",
+      "artist": "Happy Asmara",
+      "played": 278,
+      "likes": 142
+    },
+    {
+      "judul": "Rungkad",
+      "artist": "Happy Asmara",
+      "played": 351,
+      "likes": 184
+    }
+  ]
+}
